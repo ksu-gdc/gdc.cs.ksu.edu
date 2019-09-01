@@ -1,0 +1,33 @@
+{
+	"name": "gdc.cs.ksu.edu",
+	"version": "1.0.0",
+	"description": "KSU GDC website.",
+	"main": "main.js",
+	"dependencies": {},
+	"devDependencies": {
+		"eslint": "^6.2.2",
+		"gulp": "^4.0.2",
+		"gulp-clean": "^0.4.0",
+		"gulp-data": "^1.3.1",
+		"gulp-merge-json": "^1.3.1",
+		"gulp-nunjucks-render": "^2.2.3",
+		"gulp-sass": "^4.0.2",
+		"live-server": "^1.2.1",
+		"node-sass": "^4.12.0"
+	},
+	"scripts": {
+		"start": "npm run build && live-server --port=8080 ./build/",
+		"build": "gulp build",
+		"clean": "gulp clean"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/ksu-gdc/gdc.cs.ksu.edu.git"
+	},
+	"author": "Dayton Taylor",
+	"license": "MIT",
+	"bugs": {
+		"url": "https://github.com/ksu-gdc/gdc.cs.ksu.edu/issues"
+	},
+	"homepage": "https://github.com/ksu-gdc/gdc.cs.ksu.edu#readme"
+}

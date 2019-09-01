@@ -1,0 +1,8 @@
+{
+	"_paths": {
+		"assets": "/_assets",
+		"styles": "/_assets/css",
+		"scripts": "/_assets/js",
+		"images": "/_assets/img"
+	}
+}

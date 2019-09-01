@@ -1,0 +1,126 @@
+{% extends "layout.njk" %}
+
+{% block pageContent %}
+    <br>
+    <div class="container text-center">
+        <h1>K-State Annual Game Jam</h1>
+        <div class="row">
+            <div class="btn-container col">
+                <button id="showGameJam2019Btn" class="btn btn-success">2019</button>
+            </div>
+        </div>
+        <div id="gameJamContent">
+            <br>
+            <br>
+            <div id="gameJam2019">
+                <div class="theme-container">
+                    <h2>
+                        <b>Theme</b>
+                    </h2>
+                    <hr class="hr-primary">
+                    <span id="theme-text">Left Behind</span>
+                </div>
+                <br>
+                <br>
+                <div class="sponsors-container">
+                    <h2>Sponsors</h2>
+                    <hr class="hr-primary">
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.unrealengine.com/en-US/what-is-unreal-engine-4" target="_blank">
+                                <img class="vertical-center" style="width: 275px; height: auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/UE_Logo_Black_Centered.svg/1200px-UE_Logo_Black_Centered.svg.png"
+              alt="Unreal Engine">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.epicgames.com/site/en-US/about" target="_blank">
+                                <img class="vertical-center" style="width: 400px; height: auto;" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/1200px-Epic_Games_logo.svg.png"
+              alt="Epic Games">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.facebook.com/pg/GoblinGamesMHK/about/?ref=page_internal" target="_blank">
+                                <img class="vertical-center" style="width: 275px; height: auto;" src="http://tengaicon.org/res/sponsor/goblin_games_circle.jpg"
+              alt="Goblin Games">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.sidefx.com/" target="_blank">
+                                <img class="vertical-center" style="width: 475px; height: auto;" src="http://toronto.siggraph.org/wp-content/uploads/2016/11/SideFX_black_color.png"
+              alt="SideFX">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://unity3d.com/" target="_blank">
+                                <img class="vertical-center" style="width: 475px; height: auto;" src="https://jacobktaylor.files.wordpress.com/2014/08/unity-logo.png"
+              alt="Unity">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.facebook.com/pg/Walson-Ink-Screen-Printing-and-Embroidery-118945149258/about/?ref=page_internal"
+            target="_blank">
+                                <img class="vertical-center" style="width: 475px; height: auto;" src="https://cdn.discordapp.com/attachments/481991209825599488/541986295744954369/Screen_Shot_2019-02-04_at_8.09.48_AM.png"
+              alt="Walson Ink">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.novus-res.com/about/" target="_blank">
+                                <img class="vertical-center" style="width: 475px; height: auto; background-color: black; border-radius: 70px;"
+              src="https://cdn.discordapp.com/attachments/481991209825599488/539643242761945135/novus-res.png" alt="Novus Res">
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <a href="https://www.thunderheadeng.com/about/" target="_blank">
+                                <img class="vertical-center" style="width: 475px; height: auto;" src="https://cdn.discordapp.com/attachments/481991209825599488/541992441096437770/Screen_Shot_2019-02-04_at_8.43.34_AM.png"
+              alt="Thunderhead Engineering">
+                            </a>
+                        </div>
+                        <div class="col">
+                            <a href="https://www.villagegeekgames.com/" target="_blank">
+                                <img class="vertical-center" style="width: 475px; height: auto;" src="http://tengaicon.org/res/sponsor/village_geek.jpg"
+              alt="The Village Geek">
+                            </a>
+                        </div>
+                    </div>
+                    <br>
+                    <div class="row">
+                        <div class="col">
+                            <a href="http://www.sistersofsound.org/about.html" target="_blank">
+                                <img class="vertical-center" style="width: 400px; height: auto;" src="http://www.sistersofsound.org/uploads/3/1/4/9/31492563/published/logo1.png?1507323523"
+              alt="Sisters of Sound">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <br>
+{% endblock %}
+
+{% block pageStyle %}
+    <style>
+        #gameJamContent {
+            display: none;
+        }
+    </style>
+{% endblock %}
+
+{% block pageScript %}
+    <script>
+        $('#showGameJam2019Btn').click(function () {
+            $('#showGameJam2019Btn').prop('disabled', true);
+            if (!$('#gameJamContent').is(':visible')) {
+                $('#gameJamContent').slideDown(250);
+            }
+        });
+    </script>
+{% endblock %}

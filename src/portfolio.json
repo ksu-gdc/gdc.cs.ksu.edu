@@ -1,0 +1,69 @@
+{
+	"portfolio": {
+		"games": [
+			{
+				"title": "Bringer of Brilliance",
+				"description": "Fast-paced first-person gameplay between shining beacons in the howling dark.",
+				"imageUrls": [
+					"https://img.itch.zone/aW1hZ2UvMjIzODM3LzEwNTY5NjYuanBn/794x1000/ykMi7T.jpg"
+				],
+				"hostUrl": "https://crimsonseven.itch.io/bringer-of-brilliance",
+				"isFeatured": true
+			},
+			{
+				"title": "Furmoji Frenzy",
+				"description": "Furmoji are the hot new toy this Christmas, and unfortunately, Santa's running low on supplies. It's your job to help him assemble them, wrap them up, then send them on their way.\n\nDue to the labour laws set forth by the elf union, Elves must not be required to do a task for more than 20 seconds at a time. However, Santa, being the shrewd old old man he is, he found a loophole: you and your partner must switch tasks every 20 seconds. So grab a friend and venture into the minds of four people who haven't slept well in over 60 hours.\n\n***Two Xbox 360 Controllers are required to play this game***",
+				"imageUrls": [
+					"https://img.itch.zone/aW1hZ2UvMTg0MjIzLzg2MTk4NS5wbmc=/794x1000/aTtIhe.png"
+				],
+				"hostUrl": "https://studiodingwing.itch.io/furmoji-frenzy",
+				"isFeatured": true
+			},
+			{
+				"title": "あら？子犬と恋に落ちちゃった：Puppy Love!",
+				"description": "\"So, um, I never know how to start these sorts of things. My name is Wolfgang, and I'm a paleontologist. I enjoy hiking, gardening, and my dog Ruby is the love of my life. I just got out of a long relationship; apparently, my ex couldn't accept me for who I truly am. Not sure if I'm ready for something serious right now; I'm mainly just looking for fun.\" - Protagonist Boi\n\n\"The best puppy-based bullet hell dating simulator you've ever played. 11/10\" - Possibly IGN\n\nFull English Title: \"Oh no, I Regrettably Fell in Love with a Puppy: Puppy Love!\"",
+				"imageUrls": [
+					"https://img.itch.zone/aW1hZ2UvMjg1MDYzLzEzODc5ODMucG5n/794x1000/pe2aX%2F.png"
+				],
+				"hostUrl": "https://pi-memorizer.itch.io/puppy-love",
+				"isFeatured": true
+			},
+			{
+				"title": "Operation Inundation",
+				"description": "Operation Inundation is a one to two player puzzle game. Featuring four levels with original art and music, it follows Agent 842 on his mission to retrieve something from the lowest level of a flooded building.",
+				"imageUrls": [
+					"https://img.itch.zone/aW1hZ2UvMTE5MDg5LzU1NDgwMS5wbmc=/794x1000/wmSLbu.png"
+				],
+				"hostUrl": "https://pi-memorizer.itch.io/operation-inundation",
+				"isFeatured": false
+			},
+			{
+				"title": "Let it be Free",
+				"description": "A lone soul gazes quietly at the cosmos through their telescope...",
+				"imageUrls": [
+					"https://img.itch.zone/aW1nLzE4MzAwODQucG5n/315x250%23c/%2BDjaL3.png"
+				],
+				"hostUrl": "https://pi-memorizer.itch.io/let-it-be-free",
+				"isFeatured": false
+			},
+			{
+				"title": "Brave New Worm",
+				"description": "Kidnapped and imprisoned on the Eagle's Planet, you play as a young worm trying to escape and make your way home. Dig your way through multiple levels, all the while solving puzzles and avoiding eagles.",
+				"imageUrls": [
+					"https://img.itch.zone/aW1hZ2UvMTYzMDIxLzc1MTQ3My5wbmc=/794x1000/7NHZA3.png"
+				],
+				"hostUrl": "https://pi-memorizer.itch.io/brave-new-worm",
+				"isFeatured": false
+			},
+			{
+				"title": "ぼくのBro Boosting Beats",
+				"description": "Follow the beat to help your Bro live his best life. Improve his culture, health and empathy skills and see what kind of bro he turns into. But be careful! Miss enough beats and your bro might not better himself at all.\n\nControls: Left, Right, and Up/Down arrow keys correspond to your L, R, and M buttons on your Boku no Bro device respectively.",
+				"imageUrls": [
+					"https://img.itch.zone/aW1hZ2UvMzE2OTUxLzE1NjEyMTgucG5n/794x1000/rp%2FbHw.png"
+				],
+				"hostUrl": "https://studiodingwing.itch.io/bro-boosting-beats",
+				"isFeatured": false
+			}
+		]
+	}
+}

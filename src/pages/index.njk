@@ -1,0 +1,101 @@
+{% extends "layout.njk" %}
+
+{% block pageContent %}
+    <header class="masthead">
+        <div class="container">
+            <img class="img-fluid rounded-circle logo-container" src="{{_paths.images}}/gdclogo.png">
+            <div class="intro-text">
+                <h1 class="name">K-State GDC</h1>
+                <span class="description">
+        K-State’s Game Development Club is the club to be in at K-State. We get together every week
+        to develop every kind of game imaginable. We welcome all majors and skill levels to join us as we discuss
+        aspects of game development, gaming trends, and just about anything else our members want to discuss. To see
+        the games we are working on check below.
+      </span>
+            </div>
+        </div>
+    </header>
+
+    <section id="featured">
+        <div class="container text-center">
+            <h2 class="mobile-header text-center">Featured</h2>
+
+            {# <div class="row">
+                <div class="col">
+                    <button id="showFeaturedGamesBtn" class="btn btn-success featured-btn">Games</button>
+                </div>
+            </div> #}
+
+            <div id="featuredContent">
+                <hr class="hr-primary">
+                <div id="featuredContent_games">
+                    <div class="row">
+                        {% for game in portfolio.games %}
+                            {% if game.isFeatured %}
+                                <div class="col">
+                                    <div class="portfolio-item">
+                                        <div class="portfolio-link portfolio-tile">
+                                            <a href="{{game.hostUrl}}" target="_blank">
+                                                <img class="portfolio-img img-fluid" src="{{game.imageUrls[0]}}" onerror="this.src='{{_paths.images}}/img-not-available.png'">
+                                                <div class="overlay">
+                                                    <div class="overlay-text">
+                                                        <b>{{game.title}}</b>
+                                                    </div>
+                                                </div>
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            {% endif %}
+                        {% else %}
+                            <div class="col">
+                            0 games featured
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="success" id="officers">
+        <div class="container">
+            <h2 class="mobile-header text-center">Meet the Team</h2>
+            <hr class="hr-light">
+            <div class="row">
+                <div class="col-lg ml-auto">
+                    <div class="row">
+
+                        {% for officer in officers.row1 %}
+                            <div class="officer-badge col-sm-3 col-4 text-center mb-4">
+                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_paths.images}}/profile.png'">
+                                <h3 class="badge-text">
+                                    {{officer.name}}
+                                    <br>
+                                    <small>{{officer.position}}</small>
+                                </h3>
+                            </div>
+                        {% endfor %}
+
+                    </div>
+                    <div class="row">
+                        <div class="col-1"></div>
+
+                        {% for officer in officers.row2 %}
+                            <div class="officer-badge col text-center mb-4">
+                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_paths.images}}/profile.png'">
+                                <h3 class="badge-text">
+                                    {{officer.name}}
+                                    <br>
+                                    <small>{{officer.position}}</small>
+                                </h3>
+                            </div>
+                        {% endfor %}
+
+                        <div class="col-1"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+{% endblock %}
