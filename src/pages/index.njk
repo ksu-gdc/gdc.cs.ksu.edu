@@ -3,7 +3,7 @@
 {% block pageContent %}
     <header class="masthead">
         <div class="container">
-            <img class="img-fluid rounded-circle logo-container" src="{{_paths.images}}/gdclogo.png">
+            <img class="img-fluid rounded-circle logo-container" src="{{_config.site.paths.images}}/gdclogo.png">
             <div class="intro-text">
                 <h1 class="name">K-State GDC</h1>
                 <span class="description">
@@ -36,7 +36,7 @@
                                     <div class="portfolio-item">
                                         <div class="portfolio-link portfolio-tile">
                                             <a href="{{game.hostUrl}}" target="_blank">
-                                                <img class="portfolio-img img-fluid" src="{{game.imageUrls[0]}}" onerror="this.src='{{_paths.images}}/img-not-available.png'">
+                                                <img class="portfolio-img img-fluid" src="{{game.imageUrls[0]}}" onerror="this.src='{{_config.site.paths.images}}/img-not-available.png'">
                                                 <div class="overlay">
                                                     <div class="overlay-text">
                                                         <b>{{game.title}}</b>
@@ -68,7 +68,7 @@
 
                         {% for officer in officers.row1 %}
                             <div class="officer-badge col-sm-3 col-4 text-center mb-4">
-                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_paths.images}}/profile.png'">
+                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_config.site.paths.images}}/profile.png'">
                                 <h3 class="badge-text">
                                     {{officer.name}}
                                     <br>
@@ -83,7 +83,7 @@
 
                         {% for officer in officers.row2 %}
                             <div class="officer-badge col text-center mb-4">
-                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_paths.images}}/profile.png'">
+                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_config.site.paths.images}}/profile.png'">
                                 <h3 class="badge-text">
                                     {{officer.name}}
                                     <br>

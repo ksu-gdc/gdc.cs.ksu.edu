@@ -10,12 +10,12 @@ const nunjucksRender = require('gulp-nunjucks-render');
 // other modules
 const browserSync = require('browser-sync').create();
 
-const appSettings = require('./app-settings.json');
-const buildDir = appSettings.buildConfig.buildDir;
-const assetsDir = `${buildDir}/${appSettings._paths.assets}`;
-const stylesDir = `${buildDir}/${appSettings._paths.styles}`;
-const scriptsDir = `${buildDir}/${appSettings._paths.scripts}`;
-const imagesDir = `${buildDir}/${appSettings._paths.images}`;
+const config = require('./_config.json')._config;
+const buildDir = config.build.path;
+const assetsDir = `${buildDir}/${config.site.paths.assets}`;
+const stylesDir = `${buildDir}/${config.site.paths.styles}`;
+const scriptsDir = `${buildDir}/${config.site.paths.scripts}`;
+const imagesDir = `${buildDir}/${config.site.paths.images}`;
 
 const cleanBuildData = function() {
 	return gulp
@@ -48,7 +48,7 @@ const buildScripts = function() {
 };
 const buildData = function() {
 	return gulp
-		.src(['./app-settings.json', './src/**/*.json'])
+		.src(['./_config.json', './src/**/*.json'])
 		.pipe(
 			mergeJson({
 				fileName: 'data.json'
@@ -86,17 +86,16 @@ module.exports = {
 	clean: cleanBuild,
 	build: build,
 	serve: gulp.series(build, function() {
-		const serveConfig = appSettings.serveConfig;
 		browserSync.init({
-			ui: serveConfig.ui.allow
+			ui: config.serve.ui.allow
 				? {
-						port: serveConfig.ui.port
+						port: config.serve.ui.port
 				  }
 				: false,
 			server: {
 				baseDir: buildDir
 			},
-			port: serveConfig.server.port,
+			port: config.serve.server.port,
 			reloadDelay: 2000,
 			logLevel: 'debug'
 		});

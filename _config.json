@@ -1,0 +1,24 @@
+{
+	"_config": {
+		"site": {
+			"paths": {
+				"assets": "/_assets",
+				"styles": "/_assets/css",
+				"scripts": "/_assets/js",
+				"images": "/_assets/img"
+			}
+		},
+		"build": {
+			"path": "./build"
+		},
+		"serve": {
+			"ui": {
+				"allow": true,
+				"port": 3001
+			},
+			"server": {
+				"port": 8181
+			}
+		}
+	}
+}
