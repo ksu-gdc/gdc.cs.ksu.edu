@@ -4,5 +4,17 @@
 		"styles": "/_assets/css",
 		"scripts": "/_assets/js",
 		"images": "/_assets/img"
+	},
+	"buildConfig": {
+		"buildDir": "./build"
+	},
+	"serveConfig": {
+		"ui": {
+			"allow": true,
+			"port": 3001
+		},
+		"server": {
+			"port": 8181
+		}
 	}
 }

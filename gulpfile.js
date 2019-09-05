@@ -1,4 +1,5 @@
-const { src, dest, series, parallel } = require('gulp');
+// gulp modules
+const gulp = require('gulp');
 const clean = require('gulp-clean');
 const sass = require('gulp-sass');
 sass.compiler = require('node-sass');
@@ -6,60 +7,58 @@ const data = require('gulp-data');
 const mergeJson = require('gulp-merge-json');
 const nunjucksRender = require('gulp-nunjucks-render');
 
+// other modules
+const browserSync = require('browser-sync').create();
+
 const appSettings = require('./app-settings.json');
-const buildDir = './build';
+const buildDir = appSettings.buildConfig.buildDir;
 const assetsDir = `${buildDir}/${appSettings._paths.assets}`;
 const stylesDir = `${buildDir}/${appSettings._paths.styles}`;
 const scriptsDir = `${buildDir}/${appSettings._paths.scripts}`;
 const imagesDir = `${buildDir}/${appSettings._paths.images}`;
 
-// cleaning
-function cleanBuildData() {
-	return src(`${buildDir}/data.json`, { allowEmpty: true, read: false }).pipe(
-		clean()
-	);
-}
-function cleanBuild() {
-	return src(buildDir, { allowEmpty: true, read: false }).pipe(clean());
-}
+const cleanBuildData = function() {
+	return gulp
+		.src(`${buildDir}/data.json`, { allowEmpty: true, read: false })
+		.pipe(clean());
+};
+const cleanBuild = function() {
+	return gulp.src(buildDir, { allowEmpty: true, read: false }).pipe(clean());
+};
 
-// moving/building assets
-function buildAssets_Images() {
-	return src('./src/assets/images/**/*.+(png|jpg|jpeg|gif|svg)').pipe(
-		dest(imagesDir)
-	);
-}
-function buildAssets_Favicons() {
-	return src('./src/assets/**/*.ico').pipe(dest(assetsDir));
-}
-
-// moving/building styles
-function buildStyles() {
-	return src('./src/styles/**/*.scss')
+const buildAssets = gulp.parallel(
+	function() {
+		return gulp
+			.src('./src/assets/images/**/*.+(png|jpg|jpeg|gif|svg)')
+			.pipe(gulp.dest(imagesDir));
+	},
+	function() {
+		return gulp.src('./src/assets/**/*.ico').pipe(gulp.dest(assetsDir));
+	}
+);
+const buildStyles = function() {
+	return gulp
+		.src('./src/styles/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
-		.pipe(src('./src/styles/**/*.css'))
-		.pipe(dest(stylesDir));
-}
-
-// moving/building scripts
-function buildScripts() {
-	return src('./src/scripts/**/*.js').pipe(dest(scriptsDir));
-}
-
-// moving/building data
-function buildJsonData() {
-	return src(['./app-settings.json', './src/**/*.json'])
+		.pipe(gulp.src('./src/styles/**/*.css'))
+		.pipe(gulp.dest(stylesDir));
+};
+const buildScripts = function() {
+	return gulp.src('./src/scripts/**/*.js').pipe(gulp.dest(scriptsDir));
+};
+const buildData = function() {
+	return gulp
+		.src(['./app-settings.json', './src/**/*.json'])
 		.pipe(
 			mergeJson({
 				fileName: 'data.json'
 			})
 		)
-		.pipe(dest(buildDir));
-}
-
-// moving/building html
-function buildHtml() {
-	return src('./src/pages/**/*.+(html|njk)')
+		.pipe(gulp.dest(buildDir));
+};
+const buildHtml = function() {
+	return gulp
+		.src('./src/pages/**/*.+(html|njk)')
 		.pipe(
 			data(function() {
 				return require(`${buildDir}/data.json`);
@@ -70,19 +69,42 @@ function buildHtml() {
 				path: ['./src/templates']
 			})
 		)
-		.pipe(dest(buildDir));
-}
-
-// gulp commands
-exports.build = series(
+		.pipe(gulp.dest(buildDir));
+};
+const build = gulp.series(
 	cleanBuild,
-	parallel(
-		buildAssets_Images,
-		buildAssets_Favicons,
+	gulp.parallel(
+		buildAssets,
 		buildStyles,
 		buildScripts,
-		series(buildJsonData, buildHtml)
+		gulp.series(buildData, buildHtml)
 	),
 	cleanBuildData
 );
-exports.clean = cleanBuild;
+
+module.exports = {
+	clean: cleanBuild,
+	build: build,
+	serve: gulp.series(build, function() {
+		const serveConfig = appSettings.serveConfig;
+		browserSync.init({
+			ui: serveConfig.ui.allow
+				? {
+						port: serveConfig.ui.port
+				  }
+				: false,
+			server: {
+				baseDir: buildDir
+			},
+			port: serveConfig.server.port,
+			reloadDelay: 2000,
+			logLevel: 'debug'
+		});
+		gulp.watch('./src/**/*', function() {
+			return gulp.series(build, function(done) {
+				browserSync.reload();
+				done();
+			});
+		});
+	})
+};
