@@ -100,11 +100,12 @@ module.exports = {
 			reloadDelay: 2000,
 			logLevel: 'debug'
 		});
-		gulp.watch('./src/**/*', function() {
-			return gulp.series(build, function(done) {
+		gulp.watch(
+			'./src/**/*',
+			gulp.series(build, function(done) {
 				browserSync.reload();
 				done();
-			});
-		});
+			})
+		);
 	})
 };
