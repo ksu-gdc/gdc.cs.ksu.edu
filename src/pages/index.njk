@@ -1,8 +1,10 @@
 {% extends "layout.njk" %}
 
 {% block pageContent %}
+
     {% import "macros/portfolio-item.njk" as portfolioItem %}
     {% import "macros/officer-badge.njk" as officerBadge %}
+
     <header class="masthead">
         <div class="container">
             <img class="img-fluid rounded-circle logo-container" src="{{_config.site.paths.images}}/gdclogo.png">
@@ -32,11 +34,13 @@
                 <hr class="hr-primary">
                 <div id="featuredContent_games">
                     <div class="row">
+
                         {% for game in portfolio.games %}
                             <div class="col">
                                 {{portfolioItem.create(game, {_config:_config})}}
                             </div>
                         {% endfor %}
+
                     </div>
                 </div>
             </div>
