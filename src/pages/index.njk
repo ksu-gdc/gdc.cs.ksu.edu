@@ -1,6 +1,7 @@
 {% extends "layout.njk" %}
 
 {% block pageContent %}
+    {% import "macros/portfolio-item.njk" as portfolioItem %}
     <header class="masthead">
         <div class="container">
             <img class="img-fluid rounded-circle logo-container" src="{{_config.site.paths.images}}/gdclogo.png">
@@ -31,26 +32,9 @@
                 <div id="featuredContent_games">
                     <div class="row">
                         {% for game in portfolio.games %}
-                            {% if game.isFeatured %}
-                                <div class="col">
-                                    <div class="portfolio-item">
-                                        <div class="portfolio-link portfolio-tile">
-                                            <a href="{{game.hostUrl}}" target="_blank">
-                                                <img class="portfolio-img img-fluid" src="{{game.imageUrls[0]}}" onerror="this.src='{{_config.site.paths.images}}/img-not-available.png'">
-                                                <div class="overlay">
-                                                    <div class="overlay-text">
-                                                        <b>{{game.title}}</b>
-                                                    </div>
-                                                </div>
-                                            </a>
-                                        </div>
-                                    </div>
-                                </div>
-                            {% endif %}
-                        {% else %}
                             <div class="col">
-                            0 games featured
-                        </div>
+                                {{portfolioItem.create(game, {_config:_config})}}
+                            </div>
                         {% endfor %}
                     </div>
                 </div>
