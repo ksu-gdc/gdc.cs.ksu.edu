@@ -6,6 +6,8 @@ sass.compiler = require('node-sass');
 const data = require('gulp-data');
 const mergeJson = require('gulp-merge-json');
 const nunjucksRender = require('gulp-nunjucks-render');
+const stripComments = require('gulp-strip-comments');
+const minify = require('gulp-minifier');
 
 // other modules
 const browserSync = require('browser-sync').create();
@@ -41,10 +43,28 @@ const buildStyles = function() {
 		.src('./src/styles/**/*.scss')
 		.pipe(sass().on('error', sass.logError))
 		.pipe(gulp.src('./src/styles/**/*.css'))
+		.pipe(stripComments.text({ ignore: /url\([\w\s:\/=\-\+;,]*\)/g }))
+		.pipe(
+			minify({
+				minify: true,
+				minifyCSS: true
+			})
+		)
 		.pipe(gulp.dest(stylesDir));
 };
 const buildScripts = function() {
-	return gulp.src('./src/scripts/**/*.js').pipe(gulp.dest(scriptsDir));
+	return gulp
+		.src('./src/scripts/**/*.js')
+		.pipe(stripComments())
+		.pipe(
+			minify({
+				minify: true,
+				minifyJS: {
+					sourceMap: false
+				}
+			})
+		)
+		.pipe(gulp.dest(scriptsDir));
 };
 const buildData = function() {
 	return gulp
@@ -69,6 +89,16 @@ const buildHtml = function() {
 				path: ['./src/templates']
 			})
 		)
+		.pipe(stripComments.html())
+		.pipe(
+			minify({
+				minify: true,
+				minifyHTML: {
+					collapseWhitespace: true,
+					conservativeCollapse: true
+				}
+			})
+		)
 		.pipe(gulp.dest(buildDir));
 };
 const build = gulp.series(
@@ -82,6 +112,7 @@ const build = gulp.series(
 	cleanBuildData
 );
 
+let browserReloadTimeout;
 module.exports = {
 	clean: cleanBuild,
 	build: build,
@@ -96,15 +127,33 @@ module.exports = {
 				baseDir: buildDir
 			},
 			port: config.serve.server.port,
-			reloadDelay: 2000,
+			reloadDelay: 3000,
 			logLevel: 'debug'
 		});
-		gulp.watch(
-			'./src/**/*',
-			gulp.series(build, function(done) {
+		function browserSyncReload(done) {
+			if (browserReloadTimeout) {
+				clearTimeout(browserReloadTimeout);
+			}
+			browserReloadTimeout = setTimeout(() => {
 				browserSync.reload();
 				done();
-			})
+			}, browserSync.getOption('reloadDelay'));
+		}
+		gulp.watch(
+			'./src/styles/**/*.+(scss|css)',
+			gulp.series(buildStyles, browserSyncReload)
+		);
+		gulp.watch(
+			'./src/scripts/**/*.js',
+			gulp.series(buildScripts, browserSyncReload)
+		);
+		gulp.watch(
+			[
+				'./_config.json',
+				'./src/**/*.json',
+				'./src/pages/**/*.+(html|njk)'
+			],
+			gulp.series(buildData, buildHtml, browserSyncReload)
 		);
 	})
 };
