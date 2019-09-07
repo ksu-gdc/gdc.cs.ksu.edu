@@ -1,0 +1,10 @@
+{% macro create(officer, _data) %}
+    <div class="officer-badge text-center mb-4">
+        <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_data._config.site.paths.images}}/profile.png'">
+        <h3 class="badge-text">
+            {{officer.name}}
+            <br>
+            <small>{{officer.position}}</small>
+        </h3>
+    </div>
+{% endmacro %}

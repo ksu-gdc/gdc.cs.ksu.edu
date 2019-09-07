@@ -1,0 +1,14 @@
+{% macro create(item, _data) %}
+    <div class="portfolio-item">
+        <div class="portfolio-link portfolio-tile">
+            <a href="{{item.hostUrl}}" target="_blank">
+                <img class="portfolio-img img-fluid" src="{{item.imageUrls[0]}}" onerror="this.src='{{_data._config.site.paths.images}}/img-not-available.png'">
+                <div class="overlay">
+                    <div class="overlay-text">
+                        <b>{{item.title}}</b>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+{% endmacro %}

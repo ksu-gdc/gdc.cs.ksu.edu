@@ -2,6 +2,7 @@
 
 {% block pageContent %}
     {% import "macros/portfolio-item.njk" as portfolioItem %}
+    {% import "macros/officer-badge.njk" as officerBadge %}
     <header class="masthead">
         <div class="container">
             <img class="img-fluid rounded-circle logo-container" src="{{_config.site.paths.images}}/gdclogo.png">
@@ -51,13 +52,8 @@
                     <div class="row">
 
                         {% for officer in officers.row1 %}
-                            <div class="officer-badge col-sm-3 col-4 text-center mb-4">
-                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_config.site.paths.images}}/profile.png'">
-                                <h3 class="badge-text">
-                                    {{officer.name}}
-                                    <br>
-                                    <small>{{officer.position}}</small>
-                                </h3>
+                            <div class="col-sm-3 col-4">
+                                {{officerBadge.create(officer, {_config:_config})}}
                             </div>
                         {% endfor %}
 
@@ -66,13 +62,8 @@
                         <div class="col-1"></div>
 
                         {% for officer in officers.row2 %}
-                            <div class="officer-badge col text-center mb-4">
-                                <img class="badge-container rounded-circle img-fluid d-block mx-auto" src="{{officer.imageUrl}}" onerror="this.src='{{_config.site.paths.images}}/profile.png'">
-                                <h3 class="badge-text">
-                                    {{officer.name}}
-                                    <br>
-                                    <small>{{officer.position}}</small>
-                                </h3>
+                            <div class="col">
+                                {{officerBadge.create(officer, {_config:_config})}}
                             </div>
                         {% endfor %}
 
