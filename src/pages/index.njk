@@ -33,7 +33,7 @@
             <div id="featuredContent">
                 <hr class="hr-primary">
                 <div id="featuredContent_games">
-                    <div class="content">
+                    <div class="portfolio-content">
                         <div class="row">
 
                             {% for game in portfolio.games %}
@@ -90,15 +90,10 @@
             transform: scale(.7);
         }
 
-        .content {
+        .portfolio-content {
             overflow: hidden;
             line-height: 1em;
             height: 11.5em;
-            transition: all 1.0 ease !important;
-        }
-
-        #featuredContent_games > .content.showContent {
-            height: auto;
         }
     </style>
 {% endblock %}
@@ -109,11 +104,21 @@
             const $this = $(this);
             const $content = $this
                 .parent()
-                .prev('div.content:first');
-            $content.toggleClass('showContent');
+                .prev('div.portfolio-content:first');
             if ($this.text().toUpperCase() === 'SHOW MORE') {
+                const curHeight = $content.height();
+                const autoHeight = $content
+                    .css('height', 'auto')
+                    .height();
+                $content.height(curHeight);
+                $content.animate({
+                    height: autoHeight
+                }, 250);
                 $this.text('Show less');
             } else {
+                $content.animate({
+                    height: '11.5em'
+                }, 250);
                 $this.text('Show more');
             }
         });
