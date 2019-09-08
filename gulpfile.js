@@ -127,17 +127,12 @@ module.exports = {
 				baseDir: buildDir
 			},
 			port: config.serve.server.port,
-			reloadDelay: 3000,
+			reloadDelay: 2000,
 			logLevel: 'debug'
 		});
 		function browserSyncReload(done) {
-			if (browserReloadTimeout) {
-				clearTimeout(browserReloadTimeout);
-			}
-			browserReloadTimeout = setTimeout(() => {
-				browserSync.reload();
-				done();
-			}, browserSync.getOption('reloadDelay'));
+			browserSync.reload();
+			done();
 		}
 		gulp.watch(
 			'./src/styles/**/*.+(scss|css)',
@@ -153,7 +148,7 @@ module.exports = {
 				'./src/**/*.json',
 				'./src/pages/**/*.+(html|njk)'
 			],
-			gulp.series(buildData, buildHtml, browserSyncReload)
+			gulp.series(buildData, buildHtml, cleanBuildData, browserSyncReload)
 		);
 	})
 };
