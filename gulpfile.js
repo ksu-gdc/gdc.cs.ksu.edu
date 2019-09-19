@@ -146,7 +146,7 @@ module.exports = {
 			[
 				'./_config.json',
 				'./src/**/*.json',
-				'./src/pages/**/*.+(html|njk)'
+				'./src/(pages|templates)/**/*.+(html|njk)'
 			],
 			gulp.series(buildData, buildHtml, cleanBuildData, browserSyncReload)
 		);
