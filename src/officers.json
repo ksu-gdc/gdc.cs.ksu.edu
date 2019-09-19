@@ -4,45 +4,38 @@
 			{
 				"position": "President",
 				"name": "Kyle Toom",
-				"description": "",
 				"imageUrl": ""
 			},
 			{
 				"position": "Vice President",
-				"name": "Brianna Priddle",
-				"description": "",
+				"name": "Bri Priddle",
+				"imageUrl": "/_assets/img/officers/bri_priddle.jpg"
+			},
+			{
+				"position": "Treasurer",
+				"name": "Steven Zwahl",
 				"imageUrl": ""
 			},
 			{
 				"position": "Industry Liaison",
-				"name": "Jesse Molenda",
-				"description": "",
-				"imageUrl": ""
-			},
-			{
-				"position": "Event Coordinator",
-				"name": "Nathan McClain",
-				"description": "",
+				"name": "Lily Fulton",
 				"imageUrl": ""
 			}
 		],
 		"row2": [
 			{
-				"position": "Treasurer",
-				"name": "Steven Zwahl",
-				"description": "",
-				"imageUrl": ""
+				"position": "Event Coordinator",
+				"name": "Sydney Anderson",
+				"imageUrl": "https://media.discordapp.net/attachments/544294516555907094/621526739021201431/IMG_5127.jpg"
 			},
 			{
 				"position": "Web Manager",
 				"name": "Dayton Taylor",
-				"description": "",
 				"imageUrl": "https://media.licdn.com/dms/image/C4E03AQH9VLrK6ufGhw/profile-displayphoto-shrink_200_200/0?e=1572480000&v=beta&t=GV8rwoVZV9b74pvTm9we8kWxk1dsFN0cVfxA-g2fwBQ"
 			},
 			{
 				"position": "Advisor",
 				"name": "Nathan Bean",
-				"description": "",
 				"imageUrl": "/_assets/img/officers/nathan_bean.jpg"
 			}
 		]
