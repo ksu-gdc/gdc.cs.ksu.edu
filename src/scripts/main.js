@@ -14,5 +14,5 @@ function scrollTo(query) {
 	var newPosition = $(query).offset();
 	$('html, body')
 		.stop()
-		.animate({ scrollTop: newPosition.top }, 400);
+		.animate({ scrollTop: newPosition ? newPosition.top : 0 }, 400);
 }
