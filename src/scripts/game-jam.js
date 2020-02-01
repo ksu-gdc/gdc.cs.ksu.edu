@@ -33,7 +33,7 @@ if (countdownElem) {
 		);
 
 		if (distance < 0) {
-			clearInterval(x);
+			clearInterval(countdownInterval);
 			$('#openGameJamSignUp').prop('disabled', true);
 			countdownElem.html('EXPIRED');
 		}
