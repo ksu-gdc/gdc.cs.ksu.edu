@@ -1,3 +1,10 @@
+const queryParamsStr = window.location.search.substr(1);
+window.queryParams = queryParamsStr.split('&').reduce((obj, param) => {
+	const [key, value] = param.split('=');
+	obj[key] = decodeURIComponent(value);
+	return obj;
+}, {});
+
 $('#mainNav > a[scrollTo]').click(function(event) {
 	if (window.location.pathname === '/') {
 		scrollTo($(this).attr('scrollTo'));

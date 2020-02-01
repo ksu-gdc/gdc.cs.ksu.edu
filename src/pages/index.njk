@@ -82,42 +82,9 @@
 {% endblock %}
 
 {% block pageStyle %}
-    <style>
-        .show-more-btn {
-            transform: scale(.7);
-        }
-
-        .portfolio-content {
-            overflow: hidden;
-            line-height: 1em;
-            height: 11.5em;
-        }
-    </style>
+    <link href="{{_config.site.paths.styles}}/pages.css" rel="stylesheet">
 {% endblock %}
 
 {% block pageScript %}
-    <script>
-        $('.show-more-btn').click(function () {
-            const $this = $(this);
-            const $content = $this
-                .parent()
-                .prev('div.portfolio-content:first');
-            if ($this.text().toUpperCase() === 'SHOW MORE') {
-                const curHeight = $content.height();
-                const autoHeight = $content
-                    .css('height', 'auto')
-                    .height();
-                $content.height(curHeight);
-                $content.animate({
-                    height: autoHeight
-                }, 250);
-                $this.text('Show less');
-            } else {
-                $content.animate({
-                    height: '11.5em'
-                }, 250);
-                $this.text('Show more');
-            }
-        });
-    </script>
+    <script src="{{_config.site.paths.scripts}}/pages.js"></script>
 {% endblock %}
