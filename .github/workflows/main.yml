@@ -12,6 +12,9 @@ jobs:
         with:
           node-version: '12.x'
         continue-on-error: false
+      - name: install node dependencies
+        run: npm install
+        continue-on-error: false
       - name: compile and build site structure
         run: npm run build
         continue-on-error: false
