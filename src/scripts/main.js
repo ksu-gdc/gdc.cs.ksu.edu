@@ -24,12 +24,11 @@ function scrollTo(query) {
 		.animate({ scrollTop: newPosition ? newPosition.top : 0 }, 400);
 }
 
+const countdownDayConversion = 1000 * 60 * 60 * 24;
+const countdownHourConversion = 1000 * 60 * 60;
+const countdownMinuteConversion = 1000 * 60;
 $('countdown').each(function() {
 	const countdownElem = $(this);
-
-	const dayConversion = 1000 * 60 * 60 * 24;
-	const hourConversion = 1000 * 60 * 60;
-	const minuteConversion = 1000 * 60;
 
 	const countdownToDate = countdownElem.attr('to');
 	if (countdownToDate && countdownToDate.length > 0) {
@@ -39,12 +38,12 @@ $('countdown').each(function() {
 		function setCountdown() {
 			let now = new Date().getTime();
 			let distance = countdownDate - now;
-			let days = Math.floor(distance / dayConversion);
-			let hours = Math.floor((distance % dayConversion) / hourConversion);
+			let days = Math.floor(distance / countdownDayConversion);
+			let hours = Math.floor((distance % countdownDayConversion) / countdownHourConversion);
 			let minutes = Math.floor(
-				(distance % hourConversion) / minuteConversion
+				(distance % countdownHourConversion) / countdownMinuteConversion
 			);
-			let seconds = Math.floor((distance % minuteConversion) / 1000);
+			let seconds = Math.floor((distance % countdownMinuteConversion) / 1000);
 
 			countdownElem.html(
 				days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's '
