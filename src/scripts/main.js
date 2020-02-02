@@ -30,35 +30,36 @@ const countdownMinuteConversion = 1000 * 60;
 $('countdown').each(function() {
 	const countdownElem = $(this);
 
-	const countdownToDate = countdownElem.attr('to');
-	if (countdownToDate && countdownToDate.length > 0) {
-		let countdownDate = new Date(countdownToDate).getTime();
-
+	const countdownToDateStr = countdownElem.attr('to');
+	if (countdownToDateStr && countdownToDateStr.length > 0) {
+		const countdownToDate = new Date(countdownToDateStr).getTime();
 		let countdownInterval;
-		function setCountdown() {
-			let now = new Date().getTime();
-			let distance = countdownDate - now;
-			let days = Math.floor(distance / countdownDayConversion);
-			let hours = Math.floor((distance % countdownDayConversion) / countdownHourConversion);
-			let minutes = Math.floor(
-				(distance % countdownHourConversion) / countdownMinuteConversion
-			);
-			let seconds = Math.floor((distance % countdownMinuteConversion) / 1000);
+		countdownInterval = setInterval(setCountdown, 1000, countdownElem, countdownToDate, countdownInterval);
+		setCountdown(countdownElem, countdownToDate, countdownInterval);
 
-			countdownElem.html(
-				days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's '
-			);
-
-			if (distance < 0) {
-				clearInterval(countdownInterval);
-				let countdownBtnId = countdownElem.attr('btn-id');
-				if (countdownBtnId && countdownBtnId.length > 0) {
-					$('#' + countdownBtnId).prop('disabled', true);
-				}
-				countdownElem.html('EXPIRED');
-			}
-		}
-		countdownInterval = setInterval(setCountdown, 1000);
-		setCountdown();
 	}
 });
+
+function setCountdown(countdownElem, countdownToDate, countdownInterval) {
+	let now = new Date().getTime();
+	let distance = countdownToDate - now;
+	let days = Math.floor(distance / countdownDayConversion);
+	let hours = Math.floor((distance % countdownDayConversion) / countdownHourConversion);
+	let minutes = Math.floor(
+		(distance % countdownHourConversion) / countdownMinuteConversion
+	);
+	let seconds = Math.floor((distance % countdownMinuteConversion) / 1000);
+
+	countdownElem.html(
+		days + 'd ' + hours + 'h ' + minutes + 'm ' + seconds + 's '
+	);
+
+	if (distance < 0) {
+		clearInterval(countdownInterval);
+		let countdownBtnId = countdownElem.attr('btn-id');
+		if (countdownBtnId && countdownBtnId.length > 0) {
+			$('#' + countdownBtnId).prop('disabled', true);
+		}
+		countdownElem.html('EXPIRED');
+	}
+}
