@@ -38,9 +38,6 @@ jobs:
     needs: [build]
     
     steps:
-      - uses: actions/checkout@v1
-        continue-on-error: false
-
       - run: mkdir -p site-build
         continue-on-error: false
       
