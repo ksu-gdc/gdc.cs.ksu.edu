@@ -50,11 +50,12 @@ jobs:
       - name: copy build files to remote site host
         uses: appleboy/scp-action@master
         with:
-          rm: true
+          overwrite: true
           strip_components: 1
 
           source: 'site-build/*'
           target: ${{ secrets.GDC_SITE_HOST_MACHINE_FILE_HOST_DIRECTORY }}
+          tar_tmp_path: ${{ secrets.GDC_SITE_HOST_MACHINE_FILE_HOST_DIRECTORY }}
 
           host: ${{ secrets.GDC_SITE_HOST_MACHINE_IP }}
           username: ${{ secrets.GDC_SITE_HOST_MACHINE_LOGIN_USERNAME }}
