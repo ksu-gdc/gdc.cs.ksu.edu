@@ -1,0 +1,31 @@
+on:
+  push:
+    branches: 
+      - master
+
+jobs:
+  build:
+    runs-on: [ubuntu-18.04]
+    steps:
+      - name: setup node
+        uses: actions/setup-node@v1
+        with:
+          node-version: '12.x'
+        continue-on-error: false
+      - name: compile and build site structure
+        run: npm run build
+        continue-on-error: false
+  
+  deploy:
+    needs: [build]
+    runs-on: [ubuntu-18.04]
+    steps:
+      - name: copy build files to remote site host
+        uses: appleboy/scp-action@master
+        with:
+          host: ${{ secrets.GDC_SITE_HOST_MACHINE }}
+          source: 'build/*'
+          target: '/web/gdc'
+          rm: true
+          key: ${{ secrets.GDC_SITE_HOST_MACHINE_PRIVATE_LOGIN_KEY }}
+    
