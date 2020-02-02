@@ -1,0 +1,62 @@
+{
+	"gameJams": [
+		{
+			"year": "2019",
+			"theme": "Left Behind",
+			"sponsors": [
+				{
+					"title": "Unreal Engine",
+					"siteUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/UE_Logo_Black_Centered.svg/1200px-UE_Logo_Black_Centered.svg.png",
+					"imgUrl": "https://www.unrealengine.com/en-US/what-is-unreal-engine-4"
+				},
+				{
+					"title": "Epic Games",
+					"siteUrl": "https://www.epicgames.com/site/en-US/about",
+					"imgUrl": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/31/Epic_Games_logo.svg/1200px-Epic_Games_logo.svg.png"
+				},
+				{
+					"title": "Goblin Games",
+					"siteUrl": "https://www.facebook.com/pg/GoblinGamesMHK/about/?ref=page_internal",
+					"imgUrl": "http://tengaicon.org/res/sponsor/goblin_games_circle.jpg"
+				},
+				{
+					"title": "SideFX",
+					"siteUrl": "https://www.sidefx.com/",
+					"imgUrl": "http://toronto.siggraph.org/wp-content/uploads/2016/11/SideFX_black_color.png"
+				},
+				{
+					"title": "Unity",
+					"siteUrl": "https://www.facebook.com/pg/Walson-Ink-Screen-Printing-and-Embroidery-118945149258/about/?ref=page_internal",
+					"imgUrl": "https://jacobktaylor.files.wordpress.com/2014/08/unity-logo.png"
+				},
+				{
+					"title": "Watson Ink",
+					"siteUrl": "https://www.facebook.com/pg/Walson-Ink-Screen-Printing-and-Embroidery-118945149258/about/?ref=page_internal",
+					"imgUrl": "https://cdn.discordapp.com/attachments/481991209825599488/541986295744954369/Screen_Shot_2019-02-04_at_8.09.48_AM.png"
+				},
+				{
+					"title": "Thunderhead Engineering",
+					"siteUrl": "https://www.thunderheadeng.com/about/",
+					"imgUrl": "https://cdn.discordapp.com/attachments/481991209825599488/541992441096437770/Screen_Shot_2019-02-04_at_8.43.34_AM.png"
+				},
+				{
+					"title": "The Village Geek",
+					"siteUrl": "https://www.villagegeekgames.com/",
+					"imgUrl": "http://tengaicon.org/res/sponsor/village_geek.jpg"
+				},
+				{
+					"title": "Sisters of Sound",
+					"siteUrl": "http://www.sistersofsound.org/about.html",
+					"imgUrl": "http://www.sistersofsound.org/uploads/3/1/4/9/31492563/published/logo1.png?1507323523"
+				}
+			]
+		},
+		{
+			"year": "2020",
+			"countdown": {
+                "to": "Feb 14, 2020 17:00:00",
+                "btnId": "openGameJamSignup"
+            }
+		}
+	]
+}
