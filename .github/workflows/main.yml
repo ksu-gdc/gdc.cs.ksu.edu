@@ -26,19 +26,33 @@ jobs:
       - name: compile and build site structure
         run: npm run build
         continue-on-error: false
+      
+      - uses: actions/upload-artifact@v1
+        with:
+          name: site-build
+          path: build
   
   deploy:
     runs-on: ubuntu-latest
     needs: [build]
     
     steps:
+      - uses: actions/checkout@v1
+
+      - run: mkdir -p site-build
+      
+      - uses: actions/download-artifact@v1
+        with:
+          name: site-build
+          path: site-build
+      
       - name: copy build files to remote site host
         uses: appleboy/scp-action@master
         with:
           rm: true
           strip_components: 1
 
-          source: 'build/*'
+          source: 'site-build/*'
           target: ${{ secrets.GDC_SITE_HOST_MACHINE_FILE_HOST_DIRECTORY }}
 
           host: ${{ secrets.GDC_SITE_HOST_MACHINE_IP }}
