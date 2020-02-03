@@ -3,7 +3,6 @@
 {% block pageContent %}
 
     {% import "macros/portfolio-item.njk" as portfolioItem %}
-    {% import "macros/officer-badge.njk" as officerBadge %}
 
     <header class="masthead">
         <div class="container">
@@ -20,13 +19,6 @@
     <section id="featured">
         <div class="container text-center">
             <h2 class="mobile-header text-center">Featured</h2>
-
-            {# <div class="row">
-                <div class="col">
-                    <button id="showFeaturedGamesBtn" class="btn btn-success featured-btn">Games</button>
-                </div>
-            </div> #}
-
             <div id="featuredContent">
                 <hr class="hr-primary">
                 <div id="featuredContent_games">
@@ -54,28 +46,20 @@
             <h2 class="mobile-header text-center">Meet the Team</h2>
             <hr class="hr-light">
             <div class="row">
-                <div class="col-lg ml-auto">
-                    <div class="row">
 
-                        {% for officer in officers.row1 %}
-                            <div class="col-sm-3 col-4">
-                                {{officerBadge.create(officer, {_config:_config})}}
-                            </div>
-                        {% endfor %}
-
+                {% for officer in officers %}
+                    <div class="col">
+                        <div class="officer-badge text-center">
+                            <img class="badge-container rounded-circle" src="{{officer.imageUrl}}" onerror="this.src='{{_config.site.paths.images}}/profile.png'">
+                            <h3 class="badge-text">
+                                {{officer.name}}
+                                <br>
+                                <small>{{officer.position}}</small>
+                            </h3>
+                        </div>
                     </div>
-                    <div class="row">
-                        <div class="col-1"></div>
+                {% endfor %}
 
-                        {% for officer in officers.row2 %}
-                            <div class="col">
-                                {{officerBadge.create(officer, {_config:_config})}}
-                            </div>
-                        {% endfor %}
-
-                        <div class="col-1"></div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>

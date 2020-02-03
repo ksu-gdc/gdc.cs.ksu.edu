@@ -1,43 +1,39 @@
 {
-	"officers": {
-		"row1": [
-			{
-				"position": "President",
-				"name": "Kyle Toom",
-				"imageUrl": ""
-			},
-			{
-				"position": "Vice President",
-				"name": "Bri Priddle",
-				"imageUrl": "/_assets/img/officers/bri_priddle.jpg"
-			},
-			{
-				"position": "Treasurer",
-				"name": "Steven Zwahl",
-				"imageUrl": ""
-			},
-			{
-				"position": "Industry Liaison",
-				"name": "Lily Fulton",
-				"imageUrl": ""
-			}
-		],
-		"row2": [
-			{
-				"position": "Event Coordinator",
-				"name": "Sydney Anderson",
-				"imageUrl": "https://media.discordapp.net/attachments/544294516555907094/621526739021201431/IMG_5127.jpg"
-			},
-			{
-				"position": "Web Manager",
-				"name": "Dayton Taylor",
-				"imageUrl": "https://media.licdn.com/dms/image/C4E03AQH9VLrK6ufGhw/profile-displayphoto-shrink_200_200/0?e=1572480000&v=beta&t=GV8rwoVZV9b74pvTm9we8kWxk1dsFN0cVfxA-g2fwBQ"
-			},
-			{
-				"position": "Advisor",
-				"name": "Nathan Bean",
-				"imageUrl": "/_assets/img/officers/nathan_bean.jpg"
-			}
-		]
-	}
+	"officers": [
+		{
+			"position": "President",
+			"name": "Kyle Toom",
+			"imageUrl": ""
+		},
+		{
+			"position": "Vice President",
+			"name": "Bri Priddle",
+			"imageUrl": "/_assets/img/officers/bri_priddle.jpg"
+		},
+		{
+			"position": "Treasurer",
+			"name": "Steven Zwahl",
+			"imageUrl": ""
+		},
+		{
+			"position": "Industry Liaison",
+			"name": "Lily Fulton",
+			"imageUrl": ""
+		},
+		{
+			"position": "Event Coordinator",
+			"name": "Sydney Anderson",
+			"imageUrl": "https://media.discordapp.net/attachments/544294516555907094/621526739021201431/IMG_5127.jpg"
+		},
+		{
+			"position": "Web Manager",
+			"name": "Dayton Taylor",
+			"imageUrl": "https://media.licdn.com/dms/image/C4E03AQH9VLrK6ufGhw/profile-displayphoto-shrink_200_200/0?e=1572480000&v=beta&t=GV8rwoVZV9b74pvTm9we8kWxk1dsFN0cVfxA-g2fwBQ"
+		},
+		{
+			"position": "Advisor",
+			"name": "Nathan Bean",
+			"imageUrl": "/_assets/img/officers/nathan_bean.jpg"
+		}
+	]
 }
